@@ -13,7 +13,7 @@ namespace TaskManager.ViewModel
 
         [ObservableProperty]
         ObservableCollection<string> items;
-         
+
         [ObservableProperty]
         string text;
 
@@ -25,6 +25,15 @@ namespace TaskManager.ViewModel
 
             Items.Add(Text);
             Text = string.Empty;
+        }
+
+        [RelayCommand]
+        void Delete(string s)
+        {
+            if (Items.Contains(s))
+            {
+                Items.Remove(s);
+            }
         }
     }
 }
